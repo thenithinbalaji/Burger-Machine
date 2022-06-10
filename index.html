@@ -1,0 +1,196 @@
+<html>
+    <head>
+      <meta charset="utf-8" />
+      <meta name="viewport"  content="width=1024" />
+
+      <!-- <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" /> -->
+      <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+
+      <title>Burger Machine</title>
+      <link rel="stylesheet" href="./style.css" />
+      
+      <py-env>
+        - paths:
+          - ./script.py
+          - ./heapADT.py
+      </py-env>
+
+    </head>
+
+  <body>
+    <center>
+      <div class = "topbar">
+        <div class = "topbar-title">
+          <p><b>BURGER MACHINE&nbsp;	&nbsp; &nbsp;</b></p>
+        </div>
+      </div>
+    </center>
+
+    <div class = "main-input-area">
+      
+      <div class = "burger-input">
+
+        <h1><label for = "burger">Burger</label></h1>
+        <select name="burger" id="burger">
+
+          <option value="CHICKENS DOUBLE PATTY">   CHICKENS DOUBLE PATTY </option>
+          <option value="CRISPY DOUBLEER PATTY">  CRISPY DOUBLEER PATTY </option>
+          <option value="SMOKY GRILLED CHICKEN">   SMOKY GRILLED CHICKEN </option>
+
+        </select>
+
+      </div>
+      
+      <div class = "addon-input">
+
+        <h1><label for = "addon">Add-ons</label></h1>
+        <select name="addon" id="addon">
+
+          <option value="CHILLI"> CHILLI</option>
+          <option value="ONION">  ONION</option>
+
+        </select>
+
+      </div>
+      
+      <div class = "extras-input">
+
+        <h1><label for = "extras">Extras</label></h1>
+        <select name="extras" id="extras">
+
+          <option value="PEPSI">  PEPSI</option>
+          <option value="TIPSY">  TIPSY</option>
+
+        </select>
+
+      </div>
+
+
+    </div>
+
+    <div>
+      <center>
+      <button class = "add-order-button" id = "add-order-button" pys-onClick="add_order">Add Order To Cart</button>
+      <button class = "add-order-button" id = "clear-order-button" pys-onClick="clear_order">Clear All Orders</button>
+      </center>
+    </div>
+
+    <div class = "order-view-area">
+
+      <div class = "burger-image">
+        <img src = "assets\cook.svg" height="450px" > 
+      </div>
+      
+      <div class = "order-queue-box">
+        <p id = "order-queue-box"></p>
+      </div>
+    
+    </div>
+
+    <div class = "machine-select-area">
+
+      <div class="machine-image">
+        <img src = "assets\machines.svg" height="400px">
+      </div>
+
+      <div class="machine-input">
+      
+        <div class="no-of-burgers-title">
+        
+          <div>
+            <h1>BURGERS &nbsp;</h1>
+          </div>
+        
+          <div>
+            <h1 id = "no-of-burgers-count">0x</h1>
+          </div>
+        
+        </div>
+
+        <div class = "no-of-machines-selection">
+
+          <h1>NO. OF BURGER MACHINES AVAILABLE IN KITCHEN</h1>
+          
+          <input class="no-of-machines-counter" id = "no-of-machines-counter"
+          oninput = "this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1').replace(/^0[^.]/, '0');" 
+          value = '1' placeholder="1"/>
+          
+          <center>
+            <button class = "estimate-time-button" id = "estimate-time-button" pys-onClick="estimate_time_func">Estimate Time</button>
+          </center>
+        
+        </div>
+        
+      </div>
+    
+    </div>
+
+    <div>
+      <center>
+        
+        <div class = "result-bar">
+          <h1>ESTIMATED TIME TO COMPLETE ORDER - USING QUEUE&nbsp;</h1>
+        </div>
+      
+        <div>
+          <h1 id = "queue-time">0 MINS</h1>
+        </div>
+
+        <div class = "result-bar">
+          <h1>ESTIMATED TIME TO COMPLETE ORDER - USING PRIORITY QUEUE&nbsp;</h1>
+        </div>
+      
+        <div>
+          <h1 id = "pqueue-time">0 MINS</h1>
+        </div>
+
+
+
+      </center>
+    </div>
+
+    <py-script>  
+      from script import burger_god
+      order_queue = []
+      
+      def add_order(*ags, **kws):
+        
+        current_order = Element('burger').value + " with " +  Element('addon').value + " and " + Element('extras').value 
+        order_queue.append(current_order)
+
+        outputstr = ""
+        count = 1
+
+        for i in order_queue:
+          if(len(outputstr) != 0):
+            outputstr = outputstr + f' {count:02d}. ' + i 
+          else:
+            outputstr = f' {count:02d}. ' + i 
+          
+          count = count + 1
+
+        pyscript.write('order-queue-box', f'{outputstr}')
+        pyscript.write('no-of-burgers-count', f'{len(order_queue)}x')
+      
+
+      def clear_order(*ags, **kws):
+        global order_queue
+        order_queue = []
+        Element('order-queue-box').clear()
+        pyscript.write('no-of-burgers-count', f'{len(order_queue)}x')
+        pyscript.write('queue-time', f'0 MINS')
+        pyscript.write('pqueue-time', f'0 MINS')
+      
+      def estimate_time_func(*ags, **kws):
+        global order_queue
+        number_of_machines = Element("no-of-machines-counter").value
+
+        x,y = burger_god(order_queue, int(number_of_machines))
+
+        pyscript.write('queue-time', f'{x} MINS')
+        pyscript.write('pqueue-time', f'{y} MINS')
+
+    </py-script>
+  
+  </body>
+</html>

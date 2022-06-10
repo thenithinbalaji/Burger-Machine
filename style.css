@@ -1,0 +1,118 @@
+* {
+    font-family: sans-serif;
+}
+
+.topbar{
+    width: 90%;
+    padding: 2px;
+    background-color: rgb(108, 99, 255);
+    color: white;
+    border-radius: 55px;
+}
+
+.topbar-title{
+    font-size: 45px;
+}
+
+.main-input-area{
+    margin:50px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.add-order-button{
+    width: 250px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 2vh 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    color: white;
+    background: rgb(108, 99, 255);
+    transition: 0.25s;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-color: rgb(108, 99, 255);
+}
+
+.estimate-time-button{
+    width: 250px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 2vh 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    color: white;
+    background: rgb(0, 0, 0);
+    transition: 0.25s;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-color: rgb(108, 99, 255);
+}
+
+
+.order-view-area{
+    margin: 50px;
+    display: flex;
+    justify-content:center;
+}
+
+.machine-select-area{
+    margin: 50px;
+    display: flex;
+    justify-content:center;
+    border-radius: 50px;
+    background-color: rgb(108, 99, 255);
+    margin-top: 100px;
+    height: 500px;
+}
+
+.machine-input{
+    margin-left: 100px;
+    width: 425px;
+}
+
+.machine-image{
+    padding-top: 50px;
+}
+
+.order-queue-box{
+    height: 450px;
+    width: 425px;
+    margin-left: 200px;
+    text-align: left;
+    padding: 15px;
+    color: white;
+    background-color: rgb(108, 99, 255);
+    overflow: scroll;
+    border-top-left-radius: 50px;
+    line-height: 2.5;
+}
+
+#burger, #addon, #extras{
+    width: 300px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.no-of-burgers-title{
+    margin-top: 50px;
+    font-size: 25px;
+    display: flex;
+}
+
+.no-of-machines-counter{
+    height: 50px;
+    width: 425px;
+    text-align: center;
+    font-size: 35px;
+    background-color: rgb(108, 99, 255);
+}
+
+.result-bar{
+    width: 75%;
+    padding: 1px;
+    background-color: rgb(108, 99, 255);
+    color: white;
+    border-radius: 55px;
+}
