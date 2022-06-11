@@ -5,4 +5,4 @@ Scheduling Data Structures Implementation. Website made with ❤️ using [Pyscr
 https://thenithinbalaji.github.io/Burger-Machine/
 
 ## Note
-Made with Pyscript. Wait for the website to load scripts for 30s 😭😭😭 for all functionalities to work as intended. 
+Made with Pyscript. Wait for the website to load scripts for 10s 😭😭😭 for all functionalities to work as intended. 
