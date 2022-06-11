@@ -90,9 +90,12 @@
 }
 
 #burger, #addon, #extras{
-    width: 300px;
+    width: 350px;
     cursor: pointer;
     font-size: 20px;
+    padding: 5px;
+    border-radius: 50px;
+    text-align: center;
 }
 
 .no-of-burgers-title{
@@ -112,7 +115,53 @@
 .result-bar{
     width: 75%;
     padding: 1px;
+    font-size: 15px;
     background-color: rgb(108, 99, 255);
     color: white;
     border-radius: 55px;
+    line-height: 1.25;
+}
+
+.addon-input, .burger-input, .extras-input{
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#burger-table {
+    border-collapse: collapse;
+    width: 80%;
+    margin-top: 50px;
+    text-transform: uppercase;
+  }
+  
+  #burger-table td, #burger-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  #burger-table tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #burger-table tr:hover {background-color: #ddd;}
+  
+  #burger-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: rgb(90, 82, 251);
+    color: white;
+  }
+
+.menu-page-button{
+    width: 450px;
+    padding: 10px;
+    text-align: center;
+    margin: 30px;
+    border-radius: 25px;
+    font-weight: bold;
+    color: white;
+    background: rgb(90, 82, 251);
+    text-transform: uppercase;
+    cursor: pointer;
+    border-color: rgb(90, 82, 251);
 }
