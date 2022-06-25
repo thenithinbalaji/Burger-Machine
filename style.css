@@ -84,10 +84,22 @@
     padding: 15px;
     color: white;
     background-color: rgb(108, 99, 255);
-    overflow: scroll;
-    border-top-left-radius: 50px;
+    overflow-y: auto;
+    border-top-left-radius: 75px;
+    border-bottom-left-radius: 35px;
     line-height: 2.5;
 }
+
+/* .order-queue-box::-webkit-scrollbar {
+    background: rgb(108, 99, 255);       
+}
+
+.order-queue-box::-webkit-scrollbar-thumb {
+    background: rgb(86, 77, 252);  
+    border-radius: 250px;
+    border-color: rgb(86, 77, 252); 
+    border-style:solid;  
+} */
 
 #burger, #addon, #extras{
     width: 350px;
